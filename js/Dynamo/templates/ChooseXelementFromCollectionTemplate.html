@@ -1,0 +1,16 @@
+<script id="ChooseXelementFromCollection" type="text/underscore_template">
+	<% if (canCreateNew) { %> 
+		<div><button class="create_new" data-xelement_type="<%= xelement_type %>">New <%= element_pretty_name %></button></div>
+	<% }; %>
+
+	<h3><span><%= collection_name %></span></h3>
+	
+	<div>
+		<h4><span>Choose One:</span></h4>
+		<ul style="list-style: none;">
+		<% _.each(elements, function(e) { %>
+			<li style="list-style: none;"><span class="choose_element btn" data-guid="<%= e.id %>"><%= e.html %></span></li>
+		<% }) %>
+		</ul>
+	</div>
+</script>

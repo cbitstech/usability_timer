@@ -1,0 +1,20 @@
+<script id="ManageCollectionWidgetTemplate" type="text/underscore_template">
+  <div class="collection_widget">
+    <div class="start"><% start_content ? print(start_content) : null; %></div>
+    <% if (display.edit) { %>
+      <div>
+        <% 
+          //first data collection index is '-1' 
+          //b/c later code increments the index so as to let it insert 'after' this
+          //index location. hence if you want to insert at the beginning, the index
+          //is -1 so that you actually insert at 0.
+        %>
+        <button class="insert <%= element_code_name %>" data-collection_index="-1">
+          Add <%= element_pretty_name %> Here
+        </button>
+      </div>
+    <% }; %>
+    <div class="elements"></div>
+    <div class="end"><% end_content ? print(end_content) : null; %></div>
+  </div>
+</script>

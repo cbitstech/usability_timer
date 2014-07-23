@@ -1,0 +1,62 @@
+<!--
+ ***************************************
+ InputGroupTemplate 
+ Expected to be included in the head,
+ contains the CSS and the underscore template 
+ for a form input group that is composed 
+ of a set of options amongst which the user
+ can choose.
+ **************************************
+-->
+<style>
+  div.label_and_input {  
+    display:block; 
+    width:95%; 
+    margin: 0 auto 0.1em auto; 
+    padding: 0.5em 0; 
+    border: 1px solid #999; border-radius: 5px; -moz-border-radius: 5px; 
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);  
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); 
+    
+    font-size:1em; text-align:left;
+    color:#1e497c; background-color:#FFFFFF; 
+  }
+  div.label_and_input:hover, div.hasSelectedInput { 
+    color:white;
+    background-color: #1e497c; 
+  }
+
+</style>
+
+<script id="InputGroupTemplate" type="text/underscore_template">
+  <% var html_atts;
+    console.log("");
+    console.log("InputGroupTemplate; id=", id, "selected_value=", selected_value);
+  %>
+  <div id="<%=id%>" name="<%= name %>_field" class="<%=type%>_group">
+    <% if (type == 'select') { %>
+      <%= t.span(label) %>
+      <select name="<%= name %>"> 
+        <% 
+          _.each(options, function(o, index) {
+            html_atts = { value: o.value };
+            if (selected_value == o.value) { html_atts.selected = 'selected' };
+            print( t.formInput('option', o.label, html_atts) );
+          }); 
+        %>
+      </select>
+    <% }; %>
+    <% if (type == 'radio' || type == 'checkbox') { %>
+        <%= t.div(label) %>
+        <% 
+          _.each(options, function(o, index) { 
+            html_atts = { name: name, value: o.value};
+            console.log("option: ", o, "html_atts: ", html_atts);
+            if (selected_value == o.value) { html_atts.checked = 'checked' };
+            print( t.div(t.formInput(type, o.label, html_atts), { class: 'label_and_input' } ) );
+          }); 
+        %>
+    <% }; console.log(""); %>
+  </div>
+</script>

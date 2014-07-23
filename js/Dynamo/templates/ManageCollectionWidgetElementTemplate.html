@@ -1,0 +1,20 @@
+<script id="ManageCollectionWidgetElementTemplate" type="text/underscore_template">      
+<div class="<%= element_code_name %> element" data-collection_index="<%= index %>">
+  <% if (display.del)   { %>
+    <div class="delete_container">
+      <button class="delete <%= element_code_name %>" data-collection_index="<%= index %>" >
+        Delete <%= element_pretty_name %>
+      </button>
+    </div>
+  <% } %>
+  <% if (display.edit)  { print(t.div('', { class: 'edit_container' })); } %>
+  <% if (display.show)  { print(t.div('', { class: 'show_container' })); } %>
+</div>
+<% if (display.edit) { %>
+  <div>
+    <button class="insert <%= element_code_name %>" data-collection_index="<%= index %>">
+      Add <%= element_pretty_name %> Here
+    </button>
+  </div>
+<% }; %>
+</script>

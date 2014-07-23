@@ -1,0 +1,44 @@
+/* original ccs @ http://www.alessioatzeni.com/blog/css3-digital-clock-with-jquery/*/
+/* If you want you can use font-face */
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url('BebasNeue-webfont.eot');
+  src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+       url('BebasNeue-webfont.woff') format('woff'),
+       url('BebasNeue-webfont.ttf') format('truetype'),
+       url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ul.clock {
+  /*margin:0 auto;*/
+  padding:0px;
+  list-style:none;
+  text-align:center;
+  font-size: 2.25em;
+  margin: 10px 0;
+  font-weight: bold;
+}
+ul.clock li {
+  display:inline;
+}
+
+div.clock-container {
+  height: 50px;
+}
+
+/* Simple Animation */
+@-webkit-keyframes mymove 
+{
+0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
+50% {opacity:0; text-shadow:none; }
+100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }  
+}
+
+@-moz-keyframes mymove 
+{
+0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
+50% {opacity:0; text-shadow:none; }
+100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }  
+}
